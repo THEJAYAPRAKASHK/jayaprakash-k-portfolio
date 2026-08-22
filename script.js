@@ -143,52 +143,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* -----------------------------------------------------
-     7. SEARCH BAR
+     7. (search bar removed)
   ----------------------------------------------------- */
-  const searchToggle = document.getElementById('searchToggle');
-  const searchOverlay = document.getElementById('searchOverlay');
-  const searchInput = document.getElementById('searchInput');
-  const searchResults = document.getElementById('searchResults');
-  const searchClose = document.getElementById('searchClose');
-
-  const searchIndex = sections.map(sec => {
-    const title = sec.querySelector('.section-title, .hero__name');
-    const label = title ? title.textContent.trim().replace(/\s+/g, ' ') : sec.id;
-    return { id: sec.id, label };
-  });
-
-  function openSearch() { searchOverlay.classList.add('is-open'); setTimeout(() => searchInput.focus(), 100); }
-  function closeSearch() { searchOverlay.classList.remove('is-open'); searchInput.value = ''; searchResults.innerHTML = ''; }
-
-  searchToggle.addEventListener('click', openSearch);
-  searchClose.addEventListener('click', closeSearch);
-  searchOverlay.addEventListener('click', (e) => { if (e.target === searchOverlay) closeSearch(); });
   document.addEventListener('keydown', (e) => {
-    if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
-      e.preventDefault(); openSearch();
-    }
-    if (e.key === 'Escape') { closeSearch(); closeLightbox(); }
-  });
-
-  searchInput.addEventListener('input', () => {
-    const q = searchInput.value.trim().toLowerCase();
-    searchResults.innerHTML = '';
-    if (!q) return;
-    const matches = searchIndex.filter(item => item.label.toLowerCase().includes(q) || item.id.toLowerCase().includes(q));
-    matches.forEach(item => {
-      const li = document.createElement('li');
-      const a = document.createElement('a');
-      a.href = '#' + item.id;
-      a.textContent = item.label;
-      a.addEventListener('click', closeSearch);
-      li.appendChild(a);
-      searchResults.appendChild(li);
-    });
-    if (matches.length === 0) {
-      const li = document.createElement('li');
-      li.innerHTML = '<a href="#" style="pointer-events:none;opacity:.5;">No matching section</a>';
-      searchResults.appendChild(li);
-    }
+    if (e.key === 'Escape') { closeLightbox(); }
   });
 
 
