@@ -466,7 +466,8 @@ html{ scrollbar-width:thin; scrollbar-color:var(--gold-dim) transparent; }
 .contact__lock-input:focus{ border-color:var(--gold); }
 .contact__lock-input::placeholder{ color:rgba(255,255,255,0.4); }
 .contact__lock-error{ min-height:16px; color:#E8807A; font-size:.76rem; margin:2px 0 0; }
-.contact__row{ display:flex; align-items:center; gap:14px; padding:17px 19px; border-radius:var(--radius-sm); background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); color:rgba(255,255,255,0.85); transition:border-color var(--dur-fast), transform var(--dur-fast); font-size:.9rem; }
+.contact__row{ display:flex; align-items:center; gap:14px; padding:17px 19px; border-radius:var(--radius-sm); background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); color:rgba(255,255,255,0.85); transition:border-color var(--dur-fast), transform var(--dur-fast); font-size:.9rem; user-select:none; -webkit-user-select:none; }
+.contact__privacy-note{ margin-top:4px; font-size:.74rem; line-height:1.5; color:rgba(255,255,255,0.4); }
 .contact__row-icon{ display:flex; color:var(--gold-light); }
 .contact__row:hover{ border-color:var(--gold); transform:translateX(4px); color:var(--gold-light); }
 .contact__row-tag{ display:inline-block; font-style:normal; font-family:var(--font-mono); font-size:.62rem; letter-spacing:.06em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-left:8px; }
@@ -673,9 +674,6 @@ html{ scrollbar-width:thin; scrollbar-color:var(--gold-dim) transparent; }
     </nav>
 
     <div class="nav__actions">
-      <button class="icon-btn" id="searchToggle" aria-label="Search this site" title="Search">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-      </button>
       <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme">
         <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
       </button>
@@ -683,15 +681,6 @@ html{ scrollbar-width:thin; scrollbar-color:var(--gold-dim) transparent; }
         <span></span><span></span><span></span>
       </button>
     </div>
-  </div>
-
-  <div class="search-overlay" id="searchOverlay">
-    <div class="search-box">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-      <input type="text" id="searchInput" placeholder="Search — about, journey, skills, contact…" autocomplete="off">
-      <button id="searchClose" aria-label="Close search">&times;</button>
-    </div>
-    <ul class="search-results" id="searchResults"></ul>
   </div>
 </header>
 
@@ -1003,7 +992,6 @@ html{ scrollbar-width:thin; scrollbar-color:var(--gold-dim) transparent; }
           </ul>
           <span class="project-card__links">
             <button type="button" class="volunteer-card__view" data-lightbox="assets/certificates/certificate-mba-project.jpg" data-title="MBA Project Certificate — MOH IndianOil Petrol Pump, 2024">View Certificate</button>
-            <a class="cert-card__download" href="assets/documents/MBA-Project-Certificate.pdf" download="MBA-Project-Certificate.pdf" aria-label="Download MBA Project Certificate (PDF)" title="Download PDF"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 4v12m0 0l-4-4m4 4l4-4M5 20h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           </span>
         </article>
         <article class="project-card">
@@ -1018,7 +1006,6 @@ html{ scrollbar-width:thin; scrollbar-color:var(--gold-dim) transparent; }
           </ul>
           <span class="project-card__links">
             <button type="button" class="volunteer-card__view" data-lightbox="assets/certificates/certificate-bba-project.jpg" data-title="BBA Project Guide Certificate — H&amp;R Johnson (India) Limited, 2021">View Certificate</button>
-            <a class="cert-card__download" href="assets/documents/BBA-Project-Guide-Certificate.pdf" download="BBA-Project-Guide-Certificate.pdf" aria-label="Download BBA Project Guide Certificate (PDF)" title="Download PDF"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 4v12m0 0l-4-4m4 4l4-4M5 20h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           </span>
         </article>
         <!-- FUTURE: uncomment and fill in to add a new project card here
@@ -1045,7 +1032,6 @@ html{ scrollbar-width:thin; scrollbar-color:var(--gold-dim) transparent; }
             <p>Participated in the Special Coastal Cleanup Drive during Coast Guard Week 2020 at Indian Coast Guard Station, Karaikal — a formative experience in teamwork and responsibility.</p>
             <span class="volunteer-card__links">
               <button type="button" class="volunteer-card__view" data-lightbox="assets/certificates/certificate-coastguard.jpg" data-title="Indian Coast Guard — Certificate of Participation, 2020">View Certificate</button>
-              <a class="cert-card__download" href="assets/documents/Indian-Coast-Guard-Certificate.pdf" download="Indian-Coast-Guard-Certificate.pdf" aria-label="Download Indian Coast Guard Certificate (PDF)" title="Download PDF"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 4v12m0 0l-4-4m4 4l4-4M5 20h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
             </span>
           </div>
         </div>
@@ -1155,7 +1141,7 @@ html{ scrollbar-width:thin; scrollbar-color:var(--gold-dim) transparent; }
     <p class="section-lead section-lead--light reveal">Open to meaningful conversations, collaboration and professional networking.</p>
 
     <div class="contact__grid contact__grid--simple">
-      <div class="contact__details reveal reveal--left contact__details--locked" id="contactDetails">
+      <div class="contact__details reveal reveal--left contact__details--locked" id="contactDetails" oncontextmenu="return false;">
         <div class="contact__lock" id="contactLock">
           <div class="contact__lock-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="5" y="10.5" width="14" height="9.5" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M7.5 10.5V7.8a4.5 4.5 0 0 1 9 0v2.7" stroke="currentColor" stroke-width="1.6"/></svg>
@@ -1187,7 +1173,7 @@ html{ scrollbar-width:thin; scrollbar-color:var(--gold-dim) transparent; }
         </a>
         <div class="contact__row contact__row--static">
           <span class="contact__row-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="currentColor" stroke-width="1.6"/></svg></span>
-          <span>Karaikal, Puducherry – 609601</span>
+          <span>52/1, Madhur Road, Pandaravadai, Sethur, Karaikal, Puducherry – 609601</span>
         </div>
         <a class="contact__row contact__row--text" href="https://www.linkedin.com/in/hellojayaprakashk" target="_blank" rel="noopener">
           <span class="contact__row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8.25h4.5V23h-4.5V8.25zM8.5 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.6 1.76-2.6 3.57V23h-4.5V8.25z"/></svg></span>
@@ -1228,6 +1214,7 @@ html{ scrollbar-width:thin; scrollbar-color:var(--gold-dim) transparent; }
             </div>
           </div>
         </div>
+        <p class="contact__privacy-note">This information is shared in confidence for genuine professional contact only. Please don't copy, share, or screenshot it without permission.</p>
       </div>
 
       <div class="qr-card reveal reveal--right">
@@ -1452,52 +1439,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* -----------------------------------------------------
-     7. SEARCH BAR
+     7. (search bar removed)
   ----------------------------------------------------- */
-  const searchToggle = document.getElementById('searchToggle');
-  const searchOverlay = document.getElementById('searchOverlay');
-  const searchInput = document.getElementById('searchInput');
-  const searchResults = document.getElementById('searchResults');
-  const searchClose = document.getElementById('searchClose');
-
-  const searchIndex = sections.map(sec => {
-    const title = sec.querySelector('.section-title, .hero__name');
-    const label = title ? title.textContent.trim().replace(/\s+/g, ' ') : sec.id;
-    return { id: sec.id, label };
-  });
-
-  function openSearch() { searchOverlay.classList.add('is-open'); setTimeout(() => searchInput.focus(), 100); }
-  function closeSearch() { searchOverlay.classList.remove('is-open'); searchInput.value = ''; searchResults.innerHTML = ''; }
-
-  searchToggle.addEventListener('click', openSearch);
-  searchClose.addEventListener('click', closeSearch);
-  searchOverlay.addEventListener('click', (e) => { if (e.target === searchOverlay) closeSearch(); });
   document.addEventListener('keydown', (e) => {
-    if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
-      e.preventDefault(); openSearch();
-    }
-    if (e.key === 'Escape') { closeSearch(); closeLightbox(); }
-  });
-
-  searchInput.addEventListener('input', () => {
-    const q = searchInput.value.trim().toLowerCase();
-    searchResults.innerHTML = '';
-    if (!q) return;
-    const matches = searchIndex.filter(item => item.label.toLowerCase().includes(q) || item.id.toLowerCase().includes(q));
-    matches.forEach(item => {
-      const li = document.createElement('li');
-      const a = document.createElement('a');
-      a.href = '#' + item.id;
-      a.textContent = item.label;
-      a.addEventListener('click', closeSearch);
-      li.appendChild(a);
-      searchResults.appendChild(li);
-    });
-    if (matches.length === 0) {
-      const li = document.createElement('li');
-      li.innerHTML = '<a href="#" style="pointer-events:none;opacity:.5;">No matching section</a>';
-      searchResults.appendChild(li);
-    }
+    if (e.key === 'Escape') { closeLightbox(); }
   });
 
 
